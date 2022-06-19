@@ -1,0 +1,282 @@
+/***
+    The new CSS reset - version 1.6.0 (last updated 29.4.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+ *:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly. */
+:where([contenteditable]) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+
+/*  custom reset */
+
+html{
+    font-size: 16px;
+}
+body{
+    max-width: 100%;
+    font-family: 'Roboto Mono', monospace;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.flex{
+    display: flex;
+}
+.space-b{
+    justify-content: space-between;
+}
+.middle{
+    align-items: center;
+}
+#active{
+    color: #6AB867;
+}
+li{
+    list-style-type: none;
+}
+.r-reverse{
+    flex-direction: row-reverse;
+}
+
+/* custom styles -- page */
+
+.header{
+    background-color: #222946;
+    padding: .8rem;
+}
+.nav-link{
+    margin-left: 3rem;
+}
+.nav-link a, .article a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.bg-sec{
+    background-color: #E9ECFC;
+    height: max-content;
+}
+
+.article{
+    padding: 2rem;
+    flex: 0 1 48%;
+    text-align: start;
+}
+.article h2{
+    font: 500;
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 1.2rem;
+}
+.article p{
+    color: #5c5a5a;
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+.b-img img{
+    width: 100%;
+}
+.read-m-btn{
+    padding: .8rem 2rem;
+    background-color: #6AB867;
+    margin-top: 1rem;
+    border-radius: 0.4rem;
+}
+.our-blog {
+    padding: 3rem 0;
+    text-align: center;
+}
+.our-b-heading {
+    font-size: 3rem;
+    padding: 2rem 0;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.read-b-btn{
+    padding: .6rem 1.5rem;
+    background-color: #6AB867;
+    margin-top: 1rem;
+    border-radius: 0.4rem;
+}
+.read-b-btn a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.blog-box{
+    text-align: left;
+    width: 26.375rem;
+}
+.blog-box img{
+    width: 100%;
+}
+.blog-box h2{
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.blog-box p{
+    color: #5c5a5a;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    letter-spacing: .0625rem;
+}
+.footer{
+    padding: 2rem 0;
+    background-color: #222946;   
+}
+.footer div{
+    padding: 0 3rem;
+}
+.footer h2{
+    font-weight: 500;
+    color: #BCC0D2;
+    font-size: 1.75rem;
+    flex: 0 1 48%;
+}
+.f-icon i{
+    color: #BCC0D2;
+    font-size: 1.75rem;
+    margin-left: 2rem;
+}
+
+
+/* mobile screen approach */
+
+@media screen and (max-width: 768px) {
+    html{
+        font-size: 10px;
+    }
+    body{
+        padding: 0 2rem;
+    }
+    .h-div{
+        flex-direction: column;
+        align-items: center;
+    }
+    .b-logo img{
+        max-width: 8rem;
+        max-height: 3rem;
+    }
+    .a-box{
+        width: 100%;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
+        flex: 0 1 48%;
+    }
+    .b-1 p{
+        font-size: 1.2rem;
+    }
+    .blog-box00{
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        flex:  0 1 48%;
+    }
+    .blog-box{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+    .blog-box p{
+        font-size: 1.2rem;
+    }
+    .read-b-btn{
+        width: fit-content;
+    }
+    .blog-box img{
+        width: 100%;
+    }
+    .f-div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    .f-icon i{
+        margin-left: 0;
+        padding: 1rem;
+    }
+}
